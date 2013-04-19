@@ -1,0 +1,21 @@
+- @title = "Keys"
+%form{:action => "/twitkeys", :method => "get"}
+  %fieldset
+    %ol
+      %li
+        %label{:for => "name"} Name:
+        %input{:type => "text", :name => "name", :class => "text"}
+      %li
+        %label{:for => "consumer_key"} Consumer Key:
+        %input{:type => "text", :name => "consumer_key", :class => "text"}
+      %li
+        %label{:for => "consumer_secret"} Consumer Secret:
+        %input{:type => "text", :name => "consumer_secret", :class => "text"}
+      %li
+        %label{:for => "oauth_token"} Oauth Token:
+        %input{:type => "text", :name => "oauth_token", :class => "text"}
+      %li
+        %label{:for => "oauth_token_secret"} Oauth Token Secret:
+        %input{:type => "text", :name => "oauth_token_secret", :class => "text"}
+    %input{:type => "submit", :value => "Save", :class => "button"}
+#keys= partial 'twitkeys/key', :collection => @twitkeys

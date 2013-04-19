@@ -1,0 +1,15 @@
+- @title = "Jobs"
+%form{:action => "/jobs", :method => "post"}
+  %fieldset
+    %ol
+      %li
+        - for acc in @accounts
+          %label{:for => "#{acc.name}"} #{acc.name}
+          %input{:type => "checkbox", :value => "#{acc.name}", :name => "accounts[]"}
+      %li
+        %label{:for => "payload"} Payload:
+        %select{:name => "payload"}
+          - for storm in @payloads
+            %option{:value => "#{storm.id}", :name => "storm[]"}#{storm.name}
+    %input{:type => "submit", :value => "Start", :class => "button"}
+#keys= partial 'jobs/job', :collection => @jobs

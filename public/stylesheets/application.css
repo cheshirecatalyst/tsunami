@@ -1,0 +1,8 @@
+li {
+  margin-bottom: 10px; }
+  li input {
+    vertical-align: baseline; }
+  li select {
+    vertical-align: baseline; }
+  li label {
+    display: inline; }

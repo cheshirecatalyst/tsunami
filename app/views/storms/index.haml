@@ -1,0 +1,12 @@
+- @title = "Storms"
+%form{:action => "/storms", :method => "post"}
+  %fieldset
+    %ol
+      %li
+        %label{:for => "name"} Name:
+        %input{:type => "text", :name => "name", :class => "text"}
+      %li
+        %label{:for => "tweets"} Tweets:
+        %textarea{:type => "text", :name => "tweets", :class => "textarea"}
+    %input{:type => "submit", :value => "Save", :class => "button"}
+#storms= partial 'storms/storm', :collection => @storms
