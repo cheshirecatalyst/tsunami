@@ -10,6 +10,7 @@ gem 'wirble'
 gem 'thin'
 gem 'twitter'
 gem 'redcarpet'
+gem 'htmlentities'
 # Optional JSON codec (faster performance)
 # gem 'oj'
 

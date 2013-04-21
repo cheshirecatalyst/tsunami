@@ -2,18 +2,43 @@ require 'twitter'
 
 class Lazer
   
-  def initialize(account,tweets)
+  def initialize(account,tweets = "")
     @tweets = []
     tweets.each_line("\n") do |row|
       @tweets.push row.chomp
     end
+    puts "In lazer"
+    p account
     @tweet = ""
-    @client = Twitter::Client.new(
-      :consumer_key => account[0]['consumer_key'],
-      :consumer_secret => account[0]["consumer_secret"],
-      :oauth_token => account[0]["oauth_token"],
-      :oauth_token_secret => account[0]["oauth_token_secret"]
-      )
+    begin
+      @client = Twitter::Client.new(
+        :consumer_key => account[0]['consumer_key'],
+        :consumer_secret => account[0]["consumer_secret"],
+        :oauth_token => account[0]["oauth_token"],
+        :oauth_token_secret => account[0]["oauth_token_secret"]
+        )
+    rescue
+      @client = Twitter::Client.new(
+        :consumer_key => account['consumer_key'],
+        :consumer_secret => account["consumer_secret"],
+        :oauth_token => account["oauth_token"],
+        :oauth_token_secret => account["oauth_token_secret"]
+        )
+    end
+  end
+
+  def find_ammo(query,count = 20, lang = "en", type = 'recent')
+    query << " -rt"
+    count = count.to_i
+    intermediate = @client.search(query, :count => count, :lang => lang, :result_type => type).results
+    results = []
+    cleaner = 
+    intermediate.each do |tweet|
+      text = tweet.text
+      text = text.chomp
+      results.push text
+    end
+    results
   end
 
   def firin_mah_lazer(message)

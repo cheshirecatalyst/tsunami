@@ -4,11 +4,4 @@ Tsunami::App.helpers do
   # def simple_helper_method
   #  ...
   # end
-  def search_client
-    acc = Twitkey.first
-    p acc
-    return beam = Lazer.new(acc)
-  end
-
-
 end

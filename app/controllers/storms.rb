@@ -13,6 +13,14 @@ Tsunami::App.controllers :storms do
     
     @storms = Storm.all(:order => 'created_at desc')
     render 'storms/index'
-  end  
+  end
+
+  get :search do
+    lazer = search_client
+    @results = lazer.find_ammo "#ruby"
+    
+    @storms = Storm.all(:order => 'created_at desc')
+    render 'storms/index'
+  end
 
 end
