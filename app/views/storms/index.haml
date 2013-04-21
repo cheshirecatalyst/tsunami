@@ -12,4 +12,13 @@
             :preserve
               #{@results}
     %input{:type => "submit", :value => "Save", :class => "button"}
+%p
+  Try to find some tweets related to a #op: (be sure to look them over and remove anything you don't want)
+%form{:action => "/storms/search", :method => "post"}
+  %fieldset
+    %ol
+      %li
+        %label{:for => "query"} Name:
+        %input{:type => "text", :name => "query", :placeholder => "Example: #stopcispa" ,:class => "text"}
+    %input{:type => "submit", :value => "Search", :class => "button"}
 #storms= partial 'storms/storm', :collection => @storms

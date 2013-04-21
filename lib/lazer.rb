@@ -40,7 +40,7 @@ class Lazer
       text = text.chomp
       results.push text
     end
-    results
+    results = results.inject([]) { |result,h| result << h unless result.map{|i| i.downcase}.include?(h.downcase); result }
   end
 
   def firin_mah_lazer(message)
