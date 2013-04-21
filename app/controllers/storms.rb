@@ -18,7 +18,8 @@ Tsunami::App.controllers :storms do
   get :search do
     lazer = search_client
     @results = lazer.find_ammo "#ruby"
-    
+    @results = @results.join("\n")
+    @results = @results.gsub(/\t/, '')
     @storms = Storm.all(:order => 'created_at desc')
     render 'storms/index'
   end

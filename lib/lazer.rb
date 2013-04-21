@@ -32,9 +32,11 @@ class Lazer
     count = count.to_i
     intermediate = @client.search(query, :count => count, :lang => lang, :result_type => type).results
     results = []
-    cleaner = 
+    cleaner = HTMLEntities.new
     intermediate.each do |tweet|
       text = tweet.text
+      text = text.gsub("\n", ' ').squeeze(' ')
+      text = cleaner.decode text
       text = text.chomp
       results.push text
     end

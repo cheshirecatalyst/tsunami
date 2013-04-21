@@ -9,6 +9,6 @@
         %label{:for => "tweets"} Tweets:
         %textarea{:type => "text", :name => "tweets", :class => "textarea"}
           - if @results 
-            #{@results.join("\n")}
+            #{@results}
     %input{:type => "submit", :value => "Save", :class => "button"}
 #storms= partial 'storms/storm', :collection => @storms
