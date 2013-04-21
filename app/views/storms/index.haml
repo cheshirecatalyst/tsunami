@@ -8,7 +8,8 @@
       %li
         %label{:for => "tweets"} Tweets:
         %textarea{:type => "text", :name => "tweets", :class => "textarea"}
-          - if @results 
-            #{@results}
+          - if @results
+            :preserve
+              #{@results}
     %input{:type => "submit", :value => "Save", :class => "button"}
 #storms= partial 'storms/storm', :collection => @storms
