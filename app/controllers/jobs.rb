@@ -21,18 +21,12 @@ Tsunami::App.controllers :jobs do
     if params[:accounts]
       params[:accounts].each do |acc|
         job = Job.new
-        #puts acc
         payload = Storm.find(params["payload"])
         tweets = payload.tweets
         account = Twitkey.where(:name => acc).first
         job.account_name = account[:name]
         job.storm_name = payload[:name]
-        #puts "here"
-        #p account
-        #puts "here"
-
         beam = Lazer.new(account,tweets)
-        #beam.chargin_mah_lazer
         job.pid = fork { beam.chargin_mah_lazer }
         Process.detach(job.pid)
         job.save

@@ -25,6 +25,19 @@ Tsunami::App.controllers :storms do
     render 'storms/index'
   end
 
+  get :edit, :with => :id do
+    @storm = Storm.where(:id => params[:id]).first
+    render 'storms/edit'
+  end
+
+  post :index, :with => :id do
+    @storm = Storm.where(:id => params[:id]).first
+    @storm.update_attributes(:name => params[:name], :tweets => params[:tweets])
+    @storm.save
+    @storms = Storm.all(:order => 'created_at desc')
+    render 'storms/index'
+  end
+
 
 
 end

@@ -1,0 +1,14 @@
+- @title = "Edit Storm:"
+%form{:action => url(:storms, :index, :id => @storm.id), :method => "post"}
+  %fieldset
+    %ol
+      %li
+        %label{:for => "name"} Name:
+        %input{:type => "text", :name => "name", :class => "text", :value => "#{@storm.name}"}
+      %li
+        %label{:for => "tweets"} Tweets:
+        %textarea{:type => "text", :name => "tweets", :class => "textarea"}
+          - if @storm
+            :preserve
+              #{@storm.tweets}
+    %input{:type => "submit", :value => "Save", :class => "button"}
