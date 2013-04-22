@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(:version => 3) do
 
   create_table "jobs", :force => true do |t|
     t.integer  "pid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "account_name"
+    t.string   "storm_name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "storms", :force => true do |t|

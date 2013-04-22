@@ -20,11 +20,13 @@ Tsunami::App.controllers :jobs do
   post :index do
     if params[:accounts]
       params[:accounts].each do |acc|
-        tweets = Storm.find(params["payload"]).tweets
         job = Job.new
         #puts acc
-        account = Twitkey.where(:name => acc)
-        
+        payload = Storm.find(params["payload"])
+        tweets = payload.tweets
+        account = Twitkey.where(:name => acc).first
+        job.account_name = account[:name]
+        job.storm_name = payload[:name]
         #puts "here"
         #p account
         #puts "here"
