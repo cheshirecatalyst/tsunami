@@ -1,7 +1,7 @@
 - @title = "Edit Key: #{@key.name}"
 %form{:action => url(:twitkeys, :index, :id => @key.id), :method => "post"}
   %fieldset
-    %ol
+    %ul
       %li
         %label{:for => "name"} Name:
         %input{:type => "text", :name => "name", :class => "text", :value => "#{@key.name}"}

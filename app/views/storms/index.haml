@@ -1,7 +1,7 @@
 - @title = "Storms"
 %form{:action => "/storms", :method => "post"}
   %fieldset
-    %ol
+    %ul
       %li
         %label{:for => "name"} Name:
         %input{:type => "text", :name => "name", :class => "text"}
@@ -16,7 +16,7 @@
   Try to find some tweets related to a #op: (be sure to look them over and remove anything you don't want)
 %form{:action => "/storms/search", :method => "post"}
   %fieldset
-    %ol
+    %ul
       %li
         %label{:for => "query"} Name:
         %input{:type => "text", :name => "query", :placeholder => "Example: #stopcispa" ,:class => "text"}
