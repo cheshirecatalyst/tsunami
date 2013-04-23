@@ -1,3 +1,4 @@
 .storm
-  %a{:href => "/storms/edit/#{storm.id}"}Edit: #{storm.name}
+  :markdown
+    [edit](/storms/edit/#{storm.id}) | [delete](/storms/destroy/#{storm.id}) #{storm.name}
   %pre.tweets= storm.tweets

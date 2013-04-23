@@ -1,0 +1,20 @@
+- @title = "Edit Key: #{@key.name}"
+%form{:action => url(:twitkeys, :index, :id => @key.id), :method => "post"}
+  %fieldset
+    %ol
+      %li
+        %label{:for => "name"} Name:
+        %input{:type => "text", :name => "name", :class => "text", :value => "#{@key.name}"}
+      %li
+        %label{:for => "consumer_key"} Consumer Key:
+        %input{:type => "text", :name => "consumer_key", :class => "text", :value => "#{@key.consumer_key}"}
+      %li
+        %label{:for => "consumer_secret"} Consumer Secret:
+        %input{:type => "text", :name => "consumer_secret", :class => "text", :value => "#{@key.consumer_secret}"}
+      %li
+        %label{:for => "oauth_token"} Oauth Token:
+        %input{:type => "text", :name => "oauth_token", :class => "text", :value => "#{@key.oauth_token}"}
+      %li
+        %label{:for => "oauth_token_secret"} Oauth Token Secret:
+        %input{:type => "text", :name => "oauth_token_secret", :class => "text", :value => "#{@key.oauth_token_secret}"}
+    %input{:type => "submit", :value => "Save", :class => "button"}
