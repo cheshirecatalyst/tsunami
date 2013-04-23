@@ -38,13 +38,12 @@ Tsunami::App.controllers :storms do
     render 'storms/index'
   end
 
-  delete :destroy, :with => :id do
+  get :destroy, :with => :id do
     storm = Storm.find(params[:id])
     if storm
       storm.destroy
-      redirect url(:storms2, :index)
+      redirect url(:storms, :index)
     else
-      flash[:warning] = pat(:delete_warning, :model => 'Storm', :id => "#{params[:id]}")
       halt 404
     end
   end

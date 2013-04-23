@@ -31,5 +31,15 @@ Tsunami::App.controllers :twitkeys do
     render 'twitkeys/edit'
   end
 
+  get :destroy, :with => :id do
+    key = Twitkey.find(params[:id])
+    if key
+      key.destroy
+      redirect url(:twitkeys, :index)
+    else
+      halt 404
+    end
+  end
+
 
 end

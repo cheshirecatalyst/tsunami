@@ -1,4 +1,5 @@
-%a{:href => "/twitkeys/edit/#{key.id}"}Edit
+:markdown
+  [edit](/twitkeys/edit/#{key.id}) | [delete](/twitkeys/destroy/#{key.id}) #{key.name}
 %pre.key
   :preserve
     Screen Name: #{key.name}
