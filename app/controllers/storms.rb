@@ -17,6 +17,7 @@ Tsunami::App.controllers :storms do
 
   post :search do
     q = params["query"]
+    @q = params["query"]
     lazer = search_client
     @results = lazer.find_ammo q, 200
     @results = @results.join("\n")

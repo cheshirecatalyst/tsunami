@@ -6,4 +6,6 @@ li {
   li select {
     vertical-align: baseline; }
   li label {
-    display: inline; }
+    display: inline;
+    width: 120px;
+    float: left; }

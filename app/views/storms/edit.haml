@@ -1,7 +1,7 @@
 - @title = "Edit Storm: #{@storm.name}"
 %form{:action => url(:storms, :index, :id => @storm.id), :method => "post"}
   %fieldset
-    %ol
+    %ul
       %li
         %label{:for => "name"} Name:
         %input{:type => "text", :name => "name", :class => "text", :value => "#{@storm.name}"}

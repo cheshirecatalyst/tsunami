@@ -28,9 +28,9 @@ class Lazer
   end
 
   def find_ammo(query,count = 20, lang = "en", type = 'recent')
-    query << " -rt"
+    q = query + " -rt"
     count = count.to_i
-    intermediate = @client.search(query, :count => count, :lang => lang, :result_type => type).results
+    intermediate = @client.search(q, :count => count, :lang => lang, :result_type => type).results
     results = []
     cleaner = HTMLEntities.new
     intermediate.each do |tweet|
