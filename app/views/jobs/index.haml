@@ -2,7 +2,7 @@
 %form{:action => "/jobs", :method => "post"}
   %fieldset
     %ul
-      %li
+      %li.special
         - for acc in @accounts
           %label{:for => "#{acc.name}"} #{acc.name}
           %input{:type => "checkbox", :value => "#{acc.name}", :name => "accounts[]"}
