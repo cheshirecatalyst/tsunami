@@ -10,6 +10,7 @@ class Lazer
     puts "In lazer"
     p account
     @tweet = ""
+    # ToDo: Clean this up
     begin
       @client = Twitter::Client.new(
         :consumer_key => account[0]['consumer_key'],
@@ -57,7 +58,7 @@ class Lazer
       begin
         firin_mah_lazer @tweet
         #puts "Tweeting: #{tweet}"
-        sleep(Random.rand(220...360))
+        sleep(Random.rand(40...260))
       rescue Exception => e
         #puts "Tweet failed"
         puts e.message

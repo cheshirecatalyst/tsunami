@@ -27,6 +27,8 @@ Tsunami::App.controllers :jobs do
         job.account_name = account[:name]
         job.storm_name = payload[:name]
         beam = Lazer.new(account,tweets)
+        # ToDo: Figure out how to do this with threads?
+        # For the sake of ugh...windows boxes....
         job.pid = fork { beam.chargin_mah_lazer }
         Process.detach(job.pid)
         job.save
